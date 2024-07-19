@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="icon" href="./images/NESTAWAY.png">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+
+            background-repeat: no-repeat;
+        }
+        body::after {
+            content: "";
+            background: url(./images/5c1cbaf96bcec-wallpaper-preview.jpg);
+            opacity: 0.5; /* Adjust the opacity value (0 to 1) */
+            background-image: url(./images/moroom.jpg);
+            background-size: cover;
+            background-position: center;
+
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1;
+        }
+        input,label{
+            font-weight: bolder;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="header">
+    <div class="container">
+        <h1 class="text-center">Login page </h1>
+        <form  id="loginForm">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                
+                <input type="text" id="name" class="form-control" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" class="form-control" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <button type="button" id="toggleButton" class="btn btn-primary btn-block">Sign Up</button>
+            <button type="submit" class="btn btn-success btn-block">Login</button>
+        </form>
+
+        <!-- Sign-in form (initially hidden) -->
+        <form id="signInForm" style="display: none;">
+            <div class="form-group">
+                <label for="signInEmail">Email:</label>
+                <input type="email" id="signInEmail" class="form-control" name="signInEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signInPassword">Password:</label>
+                <input type="password" id="signInPassword" class="form-control" name="signInPassword" required>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Sign In</button>       
+             <button type="button" id="toggleButton" class="btn btn-primary btn-block">Create new account</button>
+             <button id="forgotButton" class="btn btn-link btn-block">Forgot Password?</button>
+
+
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2-/js/bootstrap.min.js"></script>
+
+    <script>
+        const toggleButton = document.getElementById('toggleButton');
+        const loginForm = document.getElementById('loginForm');
+        const signInForm = document.getElementById('signInForm');
+
+        toggleButton.addEventListener('click', () => {
+            const isLoginFormVisible = loginForm.style.display === 'block';
+            loginForm.style.display = isLoginFormVisible ? 'none' : 'block';
+            signInForm.style.display = isLoginFormVisible ? 'block' : 'none';
+            toggleButton.innerText = isLoginFormVisible ? 'Sign Up' : 'Login';
+        });
+
+        const forgotButton = document.getElementById('forgotButton');
+        forgotButton.addEventListener('click', () => {
+            // Handle forgot password logic (e.g., show a modal or redirect to a reset password page)
+            alert('Forgot Password clicked!');
+        });
+    </script>
+    
+</body>
+</html>
